@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ClassroomComponent implements OnInit {
   constructor(public fAuth: AngularFireAuth, private router: Router) { }
-
+  photoUrl: any;
   ngOnInit(): void {
-    console.log('entered classroom');
+    // get the user.
+    this.fAuth.user.subscribe(u => {
+      this.photoUrl = u?.photoURL;
+    });
     
   }
 
