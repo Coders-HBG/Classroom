@@ -9,10 +9,15 @@ import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthpageComponent } from './authpage/authpage.component';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ClassroomComponent } from './classroom/classroom.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthpageComponent,
+    ClassroomComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,UserTrackingService,
+    {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
   ],
   bootstrap: [AppComponent]
 })
