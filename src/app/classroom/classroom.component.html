@@ -1,0 +1,6 @@
+<p>classroom works!</p>
+<pre *ngIf="fAuth.user | async as user;">
+    {{user | json}}
+</pre>
+
+<button (click)="logout()">Logout</button>
